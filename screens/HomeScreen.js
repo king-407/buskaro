@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useLayoutEffect } from 'react'
 import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreen = () => {
     const nav = useNavigation()
@@ -23,8 +24,17 @@ const HomeScreen = () => {
                     <Text style={styles.userName}>@username</Text>
                 </View>
                 <TouchableOpacity style={styles.settingsBtn}>
-                    <AntDesign name="setting" size={32} color="white" />
+                    <AntDesign name="setting" size={28} color="white" />
                 </TouchableOpacity>
+            </View>
+
+            <View style={styles.destinationBox}>
+                <View style={styles.destinationIcon}>
+                    <Ionicons name="ios-location-outline" size={28} color="white" />
+                </View>
+                <View style={styles.inputBox}>
+                    <TextInput style={styles.input} placeholder="Enter your destination" />
+                </View>
             </View>
         </View>
     )
@@ -32,7 +42,6 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        // backgroundColor: '#000',
         height: '100%',
         width: '100%',
         paddingHorizontal: 20,
@@ -56,10 +65,29 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     settingsBtn: {
-        padding: 10,
+        padding: 12,
         backgroundColor: '#2d179b',
         borderRadius: 10,
-    }
+    },
+    destinationBox: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderColor: '#dedede',
+        borderWidth: 1,
+        borderRadius: 10,
+    },
+    destinationIcon: {
+        backgroundColor: '#2d179b',
+        padding: 12,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    inputBox: {
+        paddingLeft: 10,
+    },
+    input: {
+        fontSize: 20,
+    },
 })
 
 export default HomeScreen
