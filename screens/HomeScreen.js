@@ -1,14 +1,23 @@
 import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { useLayoutEffect } from 'react'
 
-export class HomeScreen extends Component {
-    render() {
-        return (
-            <View>
-                <Text>HomeScreen</Text>
-            </View>
-        )
-    }
+const HomeScreen = () => {
+    const nav = useNavigation()
+
+    useLayoutEffect(() => {
+        nav.setOptions({
+            // headerTitle: 'Home',
+            // headerTitleAlign: 'center',
+            headerShown: false,
+        })
+    }, [nav])
+
+    return (
+        <View>
+            <Text>HomeScreen</Text>
+        </View>
+    )
 }
 
 export default HomeScreen
