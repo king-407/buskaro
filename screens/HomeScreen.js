@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useLayoutEffect } from 'react'
+import MapView from 'react-native-maps';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -24,13 +25,15 @@ const HomeScreen = () => {
                     <Text style={styles.userName}>@username</Text>
                 </View>
                 <TouchableOpacity style={styles.settingsBtn}>
-                    <AntDesign name="setting" size={28} color="white" />
+                    <AntDesign name="setting" size={28} color="#2d179b" />
                 </TouchableOpacity>
             </View>
-
+            <View style={styles.mapBox}>
+                <MapView style={styles.map} />
+            </View>
             <View style={styles.destinationBox}>
                 <View style={styles.destinationIcon}>
-                    <Ionicons name="ios-location-outline" size={28} color="white" />
+                    <Ionicons name="ios-location-outline" size={28} color="#2d179b" />
                 </View>
                 <View style={styles.inputBox}>
                     <TextInput style={styles.input} placeholder="Enter your destination" />
@@ -42,6 +45,8 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         height: '100%',
         width: '100%',
         paddingHorizontal: 20,
@@ -66,7 +71,20 @@ const styles = StyleSheet.create({
     },
     settingsBtn: {
         padding: 12,
-        backgroundColor: '#2d179b',
+        backgroundColor: '#e1dbff',
+        borderRadius: 10,
+    },
+    mapBox: {
+        height: '80%',
+        width: '100%',
+        // marginTop: 20,
+        // marginBottom: 20,
+        borderRadius: 10,
+        overflow: 'hidden',
+    },
+    map: {
+        width: '100%',
+        height: '100%',
         borderRadius: 10,
     },
     destinationBox: {
@@ -77,7 +95,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     destinationIcon: {
-        backgroundColor: '#2d179b',
+        backgroundColor: '#e1dbff',
         padding: 12,
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
