@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { Component, useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import MapView from 'react-native-maps';
 
 const BusBoardingScreen = () => {
     const nav = useNavigation();
@@ -36,6 +37,9 @@ const BusBoardingScreen = () => {
                     </View>
                     <Text style={styles.price}>Rs. 500</Text>
                 </View>
+            </View>
+            <View style={styles.mapBox}>
+                <MapView style={styles.map} />
             </View>
         </View>
     )
@@ -106,6 +110,19 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 28,
+    },
+    mapBox: {
+        height: '40%',
+        width: '100%',
+        // marginTop: 20,
+        // marginBottom: 20,
+        borderRadius: 10,
+        overflow: 'hidden',
+    },
+    map: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 10,
     },
 })
 
